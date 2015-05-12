@@ -4,18 +4,18 @@ var colno = null;
 var output = "";
 try {
 output += "<div class=\"Comment-content\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"content", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"content", env.opts.autoescape), env.opts.autoescape);
 output += "</div>\n\n<div class=\"Comment-meta hbox\">\n  ";
-if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"updated", env.autoesc)) {
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"updated", env.opts.autoescape)) {
 output += "\n    <span class=\"fit ellipsis\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"created", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"created", env.opts.autoescape), env.opts.autoescape);
 output += " &ndash; ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"author", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"author", env.opts.autoescape), env.opts.autoescape);
 output += "</span>\n    ";
 output += "\n    ";
-if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"question", env.autoesc) && !runtime.contextOrFrameLookup(context, frame, "is_my_question")) {
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"question", env.opts.autoescape) && !runtime.contextOrFrameLookup(context, frame, "is_my_question")) {
 output += "\n      <a href=\"#\" role=\"button\" class=\"js-vote Comment-vote\" data-icon=\"feedback\">\n      ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"num_helpful_votes", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"num_helpful_votes", env.opts.autoescape), env.opts.autoescape);
 output += "\n      </a>\n    ";
 ;
 }
@@ -23,7 +23,7 @@ output += "\n  ";
 ;
 }
 else {
-if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"failed", env.autoesc)) {
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"failed", env.opts.autoescape)) {
 output += "\n    <span>Failed</span>\n  ";
 ;
 }
@@ -34,15 +34,15 @@ output += "\n    <span>Sending…</span>\n  ";
 ;
 }
 output += "\n</div>\n\n";
-if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"updated", env.autoesc)) {
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"updated", env.opts.autoescape)) {
 output += "\n  ";
-if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"id", env.autoesc) == runtime.contextOrFrameLookup(context, frame, "solution_id")) {
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"id", env.opts.autoescape) == runtime.contextOrFrameLookup(context, frame, "solution_id")) {
 output += "\n    <p class=\"Comment-solution Comment-solutionBox\">Solution ✓</p>\n  ";
 ;
 }
 else {
 output += "\n    ";
-if(runtime.contextOrFrameLookup(context, frame, "is_my_question") && runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"username", env.autoesc) != runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"creator", env.autoesc)),"username", env.autoesc)) {
+if(runtime.contextOrFrameLookup(context, frame, "is_my_question") && runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"username", env.opts.autoescape) != runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "comment")),"creator", env.opts.autoescape)),"username", env.opts.autoescape)) {
 output += "\n      <a class=\"js-solve Comment-markSolution Comment-solutionBox\">This solved my question</a>\n    ";
 ;
 }
@@ -87,11 +87,11 @@ var colno = null;
 var output = "";
 try {
 output += "<img class=\"ProfileDetails-avatar\" src=\"";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"avatar", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"avatar", env.opts.autoescape), env.opts.autoescape);
 output += "\" alt=\"\">\n<div class=\"hbox ProfileDetails-stats\">\n  <div class=\"fit vbox\">\n    <div class=\"ProfileDetails-statcounts\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"solution_count", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"solution_count", env.opts.autoescape), env.opts.autoescape);
 output += "</div>\n    <div data-icon=\"tick\"> Questions solved</div>\n  </div>\n  <div class=\"fit vbox\">\n    <div class=\"ProfileDetails-statcounts\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"helpfulness", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"helpfulness", env.opts.autoescape), env.opts.autoescape);
 output += "</div>\n    <div data-icon=\"feedback\"> Helpful upvotes</div>\n  </div>\n</div>\n";
 cb(null, output);
 ;
@@ -110,9 +110,9 @@ var colno = null;
 var output = "";
 try {
 output += "<li>\n  <a href=\"kb.html?slug=";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "kb_item")),"slug", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "kb_item")),"slug", env.opts.autoescape), env.opts.autoescape);
 output += "\" class=\"ListItem\">\n    <div class=\"ListItem-inside\">\n      <p class=\"li__title\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "kb_item")),"title", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "kb_item")),"title", env.opts.autoescape), env.opts.autoescape);
 output += "</p>\n    </div>\n  </a>\n</li>\n";
 cb(null, output);
 ;
@@ -138,18 +138,18 @@ output += "is-helper";
 output += "\">\n    ";
 if(runtime.contextOrFrameLookup(context, frame, "is_helper")) {
 output += "\n      <img class=\"SettingsInfo-avatar\" src=\"";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"avatar", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"avatar", env.opts.autoescape), env.opts.autoescape);
 output += "\" alt=\"\">\n    ";
 ;
 }
 output += "\n    <div class=\"fit vbox\">\n      <input type=\"text\" name=\"display_name\" id=\"display_name\" value=\"";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"display_name", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"display_name", env.opts.autoescape), env.opts.autoescape);
 output += "\" class=\"SettingsInfo-name\" required />\n      ";
 if(runtime.contextOrFrameLookup(context, frame, "is_helper")) {
 output += "\n        <ul class=\"SettingsInfo-achievements\">\n          <li data-icon=\"tick\">\n            ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"solution_count", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"solution_count", env.opts.autoescape), env.opts.autoescape);
 output += " Questions solved\n          </li>\n          <li data-icon=\"feedback\">\n            ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"helpfulness", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"helpfulness", env.opts.autoescape), env.opts.autoescape);
 output += " Helpful upvotes\n          </li>\n        </ul>\n      ";
 ;
 }
@@ -170,12 +170,12 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n                <option ";
-if(t_4 == runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"locale", env.autoesc)) {
+if(t_4 == runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"locale", env.opts.autoescape)) {
 output += "selected=\"selected\"";
 ;
 }
 output += ">";
-output += runtime.suppressValue(t_4, env.autoesc);
+output += runtime.suppressValue(t_4, env.opts.autoescape);
 output += "</option>\n              ";
 ;
 }
@@ -197,12 +197,12 @@ frame.set("loop.first", t_5 === 0);
 frame.set("loop.last", t_5 === t_6 - 1);
 frame.set("loop.length", t_6);
 output += "\n                  <option ";
-if(t_8 == runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"handset_type", env.autoesc)) {
+if(t_8 == runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"handset_type", env.opts.autoescape)) {
 output += "selected=\"selected\"";
 ;
 }
 output += ">";
-output += runtime.suppressValue(t_8, env.autoesc);
+output += runtime.suppressValue(t_8, env.opts.autoescape);
 output += "</option>\n                ";
 ;
 }
@@ -223,12 +223,12 @@ frame.set("loop.first", t_9 === 0);
 frame.set("loop.last", t_9 === t_10 - 1);
 frame.set("loop.length", t_10);
 output += "\n                  <option ";
-if(t_12 == runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"operator", env.autoesc)) {
+if(t_12 == runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "user")),"operator", env.opts.autoescape)) {
 output += "selected=\"selected\"";
 ;
 }
 output += ">";
-output += runtime.suppressValue(t_12, env.autoesc);
+output += runtime.suppressValue(t_12, env.opts.autoescape);
 output += "</option>\n                ";
 ;
 }
@@ -259,21 +259,21 @@ var colno = null;
 var output = "";
 try {
 output += "<li>\n  <a href=\"question.html?id=";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"id", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"id", env.opts.autoescape), env.opts.autoescape);
 output += "\" class=\"ListItem\">\n    <div class=\"ListItem-inside\">\n      <p class=\"li__title ellipsis\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"title", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"title", env.opts.autoescape), env.opts.autoescape);
 output += "</p>\n      <div class=\"hbox\">\n        <span class=\"li__subtitle fit\">\n        ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.autoesc)),"handset_type", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.opts.autoescape)),"handset_type", env.opts.autoescape), env.opts.autoescape);
 output += "\n        ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.autoesc)),"os_version", env.autoesc), env.autoesc);
-if((runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.autoesc)),"handset_type", env.autoesc) || runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.autoesc)),"os_version", env.autoesc)) && runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.autoesc)),"operator", env.autoesc)) {
+output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.opts.autoescape)),"os_version", env.opts.autoescape), env.opts.autoescape);
+if((runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.opts.autoescape)),"handset_type", env.opts.autoescape) || runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.opts.autoescape)),"os_version", env.opts.autoescape)) && runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.opts.autoescape)),"operator", env.opts.autoescape)) {
 output += ", ";
 ;
 }
 output += "\n        ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.autoesc)),"operator", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"displayable_metadata", env.opts.autoescape)),"operator", env.opts.autoescape), env.opts.autoescape);
 output += "\n        </span>\n        <span class=\"li__comments\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"num_answers", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "question")),"num_answers", env.opts.autoescape), env.opts.autoescape);
 output += "</span>\n      </div>\n    </div>\n  </a>\n</li>\n";
 cb(null, output);
 ;
@@ -311,7 +311,7 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n      <h1 class=\"list-day\">";
-output += runtime.suppressValue(t_4, env.autoesc);
+output += runtime.suppressValue(t_4, env.opts.autoescape);
 output += "</h1>\n      <ul>\n      ";
 frame = frame.push();
 var t_8 = t_5;
@@ -327,7 +327,7 @@ frame.set("loop.first", t_6 === 0);
 frame.set("loop.last", t_6 === t_7 - 1);
 frame.set("loop.length", t_7);
 output += "\n        ";
-env.getTemplate("question.html", function(t_12,t_10) {
+env.getTemplate("question.html", false, "question_list_day.html", function(t_12,t_10) {
 if(t_12) { cb(t_12); return; }
 t_10.render(context.getVariables(), frame.push(), function(t_13,t_11) {
 if(t_13) { cb(t_13); return; }
@@ -356,7 +356,7 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n      <h1 class=\"list-day\">";
-output += runtime.suppressValue(t_14, env.autoesc);
+output += runtime.suppressValue(t_14, env.opts.autoescape);
 output += "</h1>\n      <ul>\n      ";
 frame = frame.push();
 var t_18 = t_15;
@@ -372,7 +372,7 @@ frame.set("loop.first", t_16 === 0);
 frame.set("loop.last", t_16 === t_17 - 1);
 frame.set("loop.length", t_17);
 output += "\n        ";
-env.getTemplate("question.html", function(t_22,t_20) {
+env.getTemplate("question.html", false, "question_list_day.html", function(t_22,t_20) {
 if(t_22) { cb(t_22); return; }
 t_20.render(context.getVariables(), frame.push(), function(t_23,t_21) {
 if(t_23) { cb(t_23); return; }
@@ -395,7 +395,7 @@ else {
 output += "\n  ";
 if(runtime.contextOrFrameLookup(context, frame, "message")) {
 output += "\n    <p class=\"margin-10\">";
-output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "message"), env.autoesc);
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "message"), env.opts.autoescape);
 output += "</p>\n  ";
 ;
 }
@@ -437,9 +437,9 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n  <li\n  data-id=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"id", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"id", env.opts.autoescape), env.opts.autoescape);
 output += "\"\n  class=\"Comment vbox\n  ";
-if(runtime.memberLookup((t_4),"author", env.autoesc) != runtime.contextOrFrameLookup(context, frame, "author")) {
+if(runtime.memberLookup((t_4),"author", env.opts.autoescape) != runtime.contextOrFrameLookup(context, frame, "author")) {
 output += "\n    Comment--helper\n  ";
 ;
 }
@@ -448,7 +448,7 @@ output += "\n    Comment--helpee\n  ";
 ;
 }
 output += "\">\n    ";
-env.getTemplate("comment.html", function(t_7,t_5) {
+env.getTemplate("comment.html", false, "thread.html", function(t_7,t_5) {
 if(t_7) { cb(t_7); return; }
 t_5.render(context.getVariables(), frame.push(), function(t_8,t_6) {
 if(t_8) { cb(t_8); return; }
@@ -476,18 +476,18 @@ var colno = null;
 var output = "";
 try {
 output += "<div class=\"QuestionThread-meta\">\n  ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"handset_type", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"handset_type", env.opts.autoescape), env.opts.autoescape);
 output += "\n  ";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"os_version", env.autoesc), env.autoesc);
-if((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"handset_type", env.autoesc) || runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"os_version", env.autoesc)) && runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"operator", env.autoesc)) {
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"os_version", env.opts.autoescape), env.opts.autoescape);
+if((runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"handset_type", env.opts.autoescape) || runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"os_version", env.opts.autoescape)) && runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"operator", env.opts.autoescape)) {
 output += ",\n    ";
 output += "\n  ";
 ;
 }
 output += "\n  <span class=\"text-blue\">";
-output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"operator", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "displayable_metadata")),"operator", env.opts.autoescape), env.opts.autoescape);
 output += "</span>\n</div>\n<h3 class=\"QuestionThread-date text-blue\">\n  ";
-output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "date_posted"), env.autoesc);
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "date_posted"), env.opts.autoescape);
 output += "\n</h3>\n\n";
 if(runtime.contextOrFrameLookup(context, frame, "viewer_is_helper")) {
 output += "\n  ";
@@ -510,14 +510,14 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n          <option value=\"";
-output += runtime.suppressValue(t_4, env.autoesc);
+output += runtime.suppressValue(t_4, env.opts.autoescape);
 output += "\"\n            ";
 if(runtime.contextOrFrameLookup(context, frame, "selected_category") == t_4) {
 output += "selected";
 ;
 }
 output += ">\n            ";
-output += runtime.suppressValue(t_5, env.autoesc);
+output += runtime.suppressValue(t_5, env.opts.autoescape);
 output += "\n          </option>\n        ";
 ;
 }
@@ -537,14 +537,14 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n          <option value=\"";
-output += runtime.suppressValue(t_6, env.autoesc);
+output += runtime.suppressValue(t_6, env.opts.autoescape);
 output += "\"\n            ";
 if(runtime.contextOrFrameLookup(context, frame, "selected_category") == t_6) {
 output += "selected";
 ;
 }
 output += ">\n            ";
-output += runtime.suppressValue(t_7, env.autoesc);
+output += runtime.suppressValue(t_7, env.opts.autoescape);
 output += "\n          </option>\n        ";
 ;
 }
@@ -586,9 +586,9 @@ frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
 output += "\n    <li>\n      <a href=\"helper_profile.html?username=";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"username", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"username", env.opts.autoescape), env.opts.autoescape);
 output += "\" data-modal=\"true\">\n        <img src=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"avatar", env.autoesc), env.autoesc);
+output += runtime.suppressValue(runtime.memberLookup((t_4),"avatar", env.opts.autoescape), env.opts.autoescape);
 output += "\" alt=\"\" />\n      </a>\n    </li>\n  ";
 ;
 }

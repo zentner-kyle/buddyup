@@ -2,7 +2,7 @@
   "version": "1.0",
   "name": "BuddyUp",
   "description": "Realtime help system for FirefoxOS",
-  "launch_path": "/index.html",
+  "launch_path": "/buddyup/index.html",
   "orientation": ["portrait-primary"],
   "icons": {
     "16": "/media/icons/icon16x16.png",
